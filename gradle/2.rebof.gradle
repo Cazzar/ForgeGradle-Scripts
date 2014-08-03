@@ -1,0 +1,7 @@
+jar {
+    classifier = 'universal'
+    manifest {
+        //attributes FMLCorePlugin: "net.cazzar.example.CoreMod", //only for Core Mods, no comma if only using the FMLCorePlugin
+        //attributes FMLAT: "fmlat.cfg" //only for FMLAT
+    }
+}
