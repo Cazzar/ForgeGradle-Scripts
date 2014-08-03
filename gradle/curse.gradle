@@ -1,0 +1,9 @@
+apply plugin: 'curseforge'
+curse {
+    apiKey      = project.curseforge_key // gradle curse -Pcurseforge_key=your-api-key
+    projectId   = "xxxxxx" // http://minecraft.curseforge.com/mc-mods/"xxxxxx"-projectname
+    releaseType = "beta" //alpha beta release
+    changelog   = "" //must have at least an empty string
+    //addGameVersion "1.7.2" "1.7.4" //add additional versions compatible with your mod
+}
+
