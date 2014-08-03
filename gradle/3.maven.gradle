@@ -1,0 +1,19 @@
+//More information at http://www.gradle.org/docs/current/userguide/publishing_maven.html
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            //This chooses the artifacts to be published
+            artifact javadocJar
+            artifact deobfJar
+            artifact sourceJar
+        }
+    }
+    repositories {
+        maven {
+            //Set the output, you can use file:// for local files.
+            url ""
+        }
+    }
+}
