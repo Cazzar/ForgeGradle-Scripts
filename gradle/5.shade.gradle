@@ -1,0 +1,28 @@
+//We are not adding any special functions to the buildscript in terms of plugins
+//just adding a useful feature
+
+//Create the shade config.
+configurations {
+    shade
+    //include it in compile
+    compile.extendsFrom shade
+}
+
+//when adding a dependancy we do a more advanced additon now, so instead of
+//using the compile config, we now use shade!
+//Example:
+//dependencies {
+//    shade 'some.package:id:version'
+//}
+
+jar {
+    configurations.shade.each { dep ->
+        from(project.zipTree(dep)) {
+            exclude 'META-INF', 'META-INF/**'
+        }
+    }
+}
+
+//now, we also have to add something else as well.
+//minecraft { srgExtra 'PK: package/of/dep your/package/package/of/dep' }
+//this is so we do not break anything with other mods without them trying.
