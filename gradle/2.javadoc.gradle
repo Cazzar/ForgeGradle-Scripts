@@ -1,0 +1,10 @@
+//Create a task to create a javadoc for the developers
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    //Again, maven standards to use classifier of javadoc, any smart IDE will use this if asked.
+    classifier 'javadoc'
+    from 'build/docs/javadoc'
+}
+
+artifacts {
+    archives javadocJar
+}
