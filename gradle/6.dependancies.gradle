@@ -1,0 +1,10 @@
+//this is a simple one, but it is nice to show examples
+repositories {
+    mavenCentral()
+}
+//Some example deps, delete these, they will not resolve
+dependencies {
+    compile 'this:is:compiletime'
+    shade 'this:is:in:jar'
+}
+

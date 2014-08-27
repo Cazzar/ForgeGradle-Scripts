@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+        
+        /**
+         * Any extra BUILDSCRIPT maven repositories go here.
+         */
+    }
+
+
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        /**
+         * Any extra BUILDSCRIPT dependencies go here
+         */
+    }
+}
+
+group = 'net.cazzar.example' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = '1.0.0'
+archivesBaseName = "example"
+
+fileTree('gradle').include('*.gradle').collect().sort().each { apply from: it }
