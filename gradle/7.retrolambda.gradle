@@ -21,8 +21,8 @@ retrolambda {
 }
 
 dependencies {
-    //Fuck you FML
-    compile 'org.ow2.asm:asm-debug-all:5.0.3'
+    //Uncomment if using below Forge 1217
+    //compile 'org.ow2.asm:asm-debug-all:5.0.3'
 }
 
 tasks.withType(JavaCompile) {
