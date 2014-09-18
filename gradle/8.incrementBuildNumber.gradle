@@ -1,0 +1,34 @@
+/*
+This opens your config file and reads it.
+*/
+configFile.withReader {
+
+    def prop = new Properties()
+    prop.load(it)
+    ext.config = new ConfigSlurper().parse prop
+}
+
+/*
+This uses the buildnumber in your config file. 
+*/
+version = "${config.minecraft_version}-${config.mod_build}"
+
+/*
+Increments the buildnumber in your config file, and saves it
+*/
+task incrementBuildNumber() {
+    dependsOn "reobf"
+    doLast {
+        config.mod_build = (config.mod_build.toString().toInteger()) + 1
+        configFile.withWriter {
+            config.toProperties().store(it, "")
+        }
+    }
+}
+
+========
+/*
+This is a special file in the same directory as the build.gradle, called 'build.properties'
+*/
+minecraft_version=1.7.10
+mod_build=1
