@@ -1,8 +1,8 @@
+ext.configFile = file('build.properties')
 /*
 This opens your config file and reads it.
 */
 configFile.withReader {
-
     def prop = new Properties()
     prop.load(it)
     ext.config = new ConfigSlurper().parse prop
@@ -26,9 +26,8 @@ task incrementBuildNumber() {
     }
 }
 
-========
 /*
 This is a special file in the same directory as the build.gradle, called 'build.properties'
-*/
-minecraft_version=1.7.10
+===
 mod_build=1
+*/
